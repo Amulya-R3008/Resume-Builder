@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<title>Resume Builder</title>
+</head>
+
+<body>
+
+<div class="container" id="cv-form">
+<div class="jumbotron" style="background-color:lightSkyBlue;">
+<nav class = "navbar bg-white">
+<img src = "a.png" alt = "hi" class = "navbar-brand-icon" style="width:800px;height:128px;">
+
+  <center><h1 style="padding:10px;color:blue;">RESUME BUILDER</h1></center>
+
+</nav>
+</div>
+    <hr><hr>
+
+        <div class="row">
+            <div class="col-md-6">
+             <!--First column-->
+             <h3>PERSONAL INFORMATION</h3>
+             <div class="form-group mt-3">
+                <label for="nameField"><i class="fas fa-user"></i> Your Name</label>
+                <input 
+                 type="text" 
+                 id="nameField" 
+                 placeholder="Amulya R" 
+                 class="form-control" required
+                 />   
+             </div>
+
+             <div class="form-group mt-3">
+                <label for="contactField"><i class="fas fa-phone"></i> Your Contact Number</label>
+                <input 
+                 type="text" 
+                 id="contactField" 
+                 placeholder="9564721360" 
+                 class="form-control"
+                 maxlength="10" minlength="10" required
+                 />   
+             </div>
+
+             <div class="form-group mt-3">
+                <label for="emField"><i class="fas fa-envelope"></i> Your EmailID</label>
+                <input 
+                 type="email" 
+                 id="emField" 
+                 placeholder="abc@gmail.com" 
+                 class="form-control" required
+                 />   
+             </div>
+
+             <div class="form-group mt-3">
+                <label for="addressField"><i class="fas fa-home"></i> Your Address</label>
+                <textarea
+                 type="text" 
+                 id="addressField" 
+                 placeholder="Enter Here" 
+                 class="form-control"
+                 rows="4" required
+                 ></textarea>   
+             </div>
+
+             <div class="form-group mt-3">
+              <label for=""><i class="fas fa-image"></i> Select your Photo</label>
+                <input id="imgField" type="file" class="form-control">
+             </div>
+
+
+
+             <p class="text-info my-3">Important Links</p>
+
+             <div class="form-group mt-3">
+                <label for="fbField"><i class="fab fa-github"></i> Github</label>
+                <input 
+                 type="text" 
+                 id="fbField" 
+                 placeholder="Enter Here" 
+                 class="form-control" required
+                 />   
+             </div>
+
+             <div class="form-group mt-3">
+                <label for="linkedField"><i class="fab fa-linkedin"></i> LinkedIN</label>
+                <input 
+                 type="text" 
+                 id="linkedField" 
+                 placeholder="Enter Here" 
+                 class="form-control" required
+                 />   
+             </div>
+ 
+<div class="form-group mt-3" id="hs">
+                    <label for=""><i class="fas fa-lightbulb"></i> Hobbies</label>
+                    <textarea id="hsField" rows="4" placeholder="Enter Here" class="form-control hsField" required></textarea>   
+                    <div class="container text-center mt-3" id="hsAddButton">
+                        <button onclick="addNewHSField()" class="btn btn-primary btn-sm">Add</button>
+                    </div>
+                 </div>
+
+
+            </div>
+            <div class="col-md-6">
+
+                <h3>PROFESSIONAL INFORMATION</h3>
+
+                 <div class="form-group mt-3">
+                    <label for=""><i class="fas fa-book"></i> Objective</label>
+                    <textarea id="objectiveField" rows="4" placeholder="Enter Here" class="form-control" required></textarea>   
+                 </div>
+
+                 <div class="form-group mt-3" id="we">
+                    <label for=""><i class="fas fa-folder-open"></i>Projects</label>
+                    <textarea rows="4" placeholder="Enter Here" class="form-control weField" required></textarea> 
+                    
+                    <!--new textarea-->
+
+                    <div class="container text-center mt-2" id="weAddButton">
+                        <button onclick="addNewWEField()" class="btn btn-primary btn-sm">Add</button>
+                    </div>
+                 </div>
+
+
+                 <div class="form-group mt-3" id="aq">
+                    <label for=""><i class="fas fa-graduation-cap"></i> Academic Qualifications</label>
+                    <textarea id="aqField" rows="4" placeholder="Enter Here" class="form-control eqField" required></textarea>   
+                    <div class="container text-center mt-3" id="aqAddButton">
+                        <button  onclick="addNewAQField()" class="btn btn-primary btn-sm">Add</button>
+                    </div>
+                 </div>
+
+                 <div class="form-group mt-3" id="ks">
+                    <label for=""><i class="fas fa-star"></i> Key Skills</label>
+                    <textarea id="ksField" rows="4" placeholder="Enter Here" class="form-control ksField" required></textarea>   
+                    <div class="container text-center mt-3" id="ksAddButton">
+                        <button onclick="addNewKSField()" class="btn btn-primary btn-sm">Add</button>
+                    </div>
+                 </div>
+            </div>      
+        </div>
+
+        <div class="container text-center mt-3">
+            <button onclick="generateCV()" class="btn btn-danger btn-lg">Generate CV</button>
+
+<br>
+<br>
+<center><h4>FOR EXAMPLE</h4></center>
+        </div>
+    </div>
+<br>
+<br>
+
+
+    <!--cv template-->
+    <div class="container" id="cv-template">
+
+        <div class="row">
+            <div class="col-md-4 text-center py-5 background">
+               <!--First column-->
+               <img
+                src="https://www.clipartkey.com/mpngs/m/146-1461473_default-profile-picture-transparent.png" 
+                alt=""
+                class="img-fluid myimg"
+                id="imgTemplate"
+                />
+
+                <div class="container">
+			<hr><hr>
+                    <p id="nameT1" style="font-size:200%;"><b>Amulya R</b></p>
+                    <p id="contactT" style="font-size:150%%;"><i class="fas fa-phone"></i>9230303220</p>
+                    <p id="addressT" style="font-size:150%%;"> <i class="fas fa-map-marker-alt"></i>Secor 35 Noida, India</p>
+                     <p id="emailT" style="font-size:150%%;"><i class="fas fa-envelope"></i>abc@gmail.com </p>
+
+                    <hr /><hr>
+
+                    <p><a id="fbT" href="#1"><i class="fab fa-github"></i>https://www.github.com</a></p>
+                    <p><a id="linkedT" href="#1"><i class="fab fa-linkedin"></i> https://www.linkedin.com</a></p>
+
+<hr><hr>
+<!--hobies-->
+                <div class="card mt-4">
+                    <div class="card-header background">
+                        <h5 style="background-color:black;color:white;"><i class="fas fa-lightbulb"></i>Hobbies</h5>
+                    </div>
+                    <div class="card-body background">
+                        <ul id="hsT" style="font-size:150%;">
+                            <li>Reading books</li>
+				<li> listening to music</li>
+				<li> cooking</li>
+				<li> travelling</li>
+
+                        </ul>                   
+                     </div>
+                </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-8 pyt">
+                <!--Second column-->
+                <h1 id="nameT2" class="text-center" style="font-weight: 980;"></h1>
+
+                <!--objective card-->
+                <div class="card mt-4">
+                    <div class="card-header background">
+                        <h3>Objective</h3>
+                    </div>
+                    <div class="card-body">
+                        <p id="objectiveT">Driven software engineer with a strong foundation in computer science and 3 years of experience in full-stack development. Proficient in Java, Python, and JavaScript, with a proven track record of delivering scalable and efficient solutions. Seeking a challenging role where I can contribute my skills to develop innovative software products and collaborate with a dynamic team</p>
+                    </div>
+                </div>
+                
+
+                  <!--work experience card-->
+                  <div class="card mt-4">
+                    <div class="card-header background">
+                        <h3>Projects</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul id="weT">
+                            <li>XYZ Tech Solutions, Anytown, USA
+June 2020 - Present
+
+Collaborated with cross-functional teams to design and implement RESTful APIs, improving data exchange efficiency by 30%.</li>
+
+                            <li>Developed and maintained web applications using technologies such as React.js, Node.js, and MongoDB, resulting in a 20% increase in user engagement.</li>
+
+                            <li>Participated in code reviews and provided constructive feedback to team members, fostering a culture of continuous improvement and knowledge sharing.</li>
+
+                            <li>Investigated and resolved technical issues reported by users, ensuring smooth operation of critical systems and minimizing downtime.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!--Academic Qualification card-->
+                <div class="card mt-4">
+                    <div class="card-header background">
+                        <h3>Academic Qualification</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul id="aqT">
+                            <li>Anytown University, Anytown, USA
+September 2016 - May 2020</li>
+
+                            <li>Relevant coursework: Data Structures, Algorithms, Object-Oriented Programming, Software Engineering, Database Systems.</li>
+
+                            <li>Graduated with honors (GPA: 3.8/4.0).</li>
+
+                            <li>Capstone project: Developed a real-time chat application using Node.js and React.js, demonstrating proficiency in full-stack development and teamwork.</li>
+                        </ul>                    </div>
+                </div>
+ 
+                <!--Key Skills card-->
+                <div class="card mt-4">
+                    <div class="card-header background">
+                        <h3>Key Skills</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul id="ksT">
+                            <li>Programming Languages: Java, Python, JavaScript
+
+Version Control: Git, GitHub</li>
+
+                            <li>Web Development: HTML5, CSS3, JavaScript (Node.js, AngularJS, React.js), RESTful APIs
+</li>
+
+                            <li>Frameworks & Libraries: Spring Boot, Django, Flask, Express.js
+</li>
+
+                        </ul>                   
+                     </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="container mt-3  text-center">
+                    <button id="printCVButton" onclick="printCV()" class="btn btn-warning">
+                        Print CV
+                    </button></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="s1.js"></script>
+</body>
+</html>
